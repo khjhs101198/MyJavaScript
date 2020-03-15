@@ -5,24 +5,22 @@
   
   <body>
     <p id='demo'></p>
-      <p><button class='btn1'>Start</button></p>
-      <p><button class='btn2'>Stop</button></p>
-      <p><button class='btn3'>Reset</button></p>
+      <p><button>Start</button></p>
+      <p><button>Stop</button></p>
+      <p><button>Reset</button></p>
     <script>
       var count = -1;
-      var btn1 = document.querySelector('.btn1');
-      var btn2 = document.querySelector('.btn2');
-      var btn3 = document.querySelector('.btn3');
+      var btns = document.querySelectorAll('button');
       
-      btn1.addEventListener('click',function() {
+      btns[0].addEventListener('click',function() {
         window.setInterval(displayTime, 1000);
       })
       
-      btn2.addEventListener('click',function() {
+      btns[1].addEventListener('click',function() {
         window.clearInterval(counter);
       })
       
-      btn3.addEventListener('click',function() {
+      btns[2].addEventListener('click',function() {
         count = -1;
       })
       
