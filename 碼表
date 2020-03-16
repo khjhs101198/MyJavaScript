@@ -18,23 +18,33 @@
 var miSec = 0;
 var sec = 0;
 var min = 0;
+var _miSec;
+var _sec;
+var _min;
 var h1 = document.querySelector('h1');
 
 function displayTime() {
+	if(min<10) { _min = '0' + min.toString();}
+	else { _min = min.toString();}
+	if(sec<10) { _sec = '0' + sec.toString();}
+	else { _sec = sec.toString();}
+	if(miSec<10) { _miSec = '0' + miSec.toString();}
+	else { _miSec = miSec.toString();}
   if(miSec<99) {
     miSec++;
-	h1.textContent = min.toString() + ':' + sec.toString() + ':' + miSec.toString();
+    h1.textContent = _min + ':' + _sec + ':' + _miSec;
   }
   else if (miSec===99) {
     if(sec<59) {
-      miSec = 0;
-      sec++;
-	  h1.textContent = min.toString() + ':' + sec.toString() + ':' + miSec.toString();
+	  miSec = 0;
+	  sec++;
+	  h1.textContent = _min + ':' + _sec + ':' + _miSec;
 	}
 	else if (sec === 59) {
+	   miSec= 0;
 	   sec = 0;
 	   min++;
-	   h1.textContent = min.toString() + ':'+ sec.toString() + ':' + miSec.toString();
+	   h1.textContent = _min + ':'+ _sec + ':' + _miSec;	   
 	}
   }
 }
