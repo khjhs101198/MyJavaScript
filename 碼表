@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style> 
+<style>
+h1{ height: 50px;}
+p{ margin: 1px;
+   float: left;
+   }
+
 </style>
 </head>
 <body>
 <div>
-  <h1>00:00.00</h1>
+<h1><p>00</p><p>:</p><p>00</p><p>.</p><p>00</p></h1>
+<section>
+  <button>開始</button>
+  <button>暫停</button>
+  <button>重製</button>
+</section>
 </div>
 
-<button>開始</button>
-<button>暫停</button>
-<button>圈</button>
-<button>繼續</button>
-<button>重設</button>
 <script>
 var miSec = 0;
 var sec = 0;
@@ -22,6 +27,7 @@ var _miSec;
 var _sec;
 var _min;
 var h1 = document.querySelector('h1');
+var btns = document.querySelectorAll('button');
 
 function displayTime() {
 	if(min<10) { _min = '0' + min.toString();}
@@ -49,7 +55,23 @@ function displayTime() {
   }
 }
 
-window.setInterval(displayTime, 10);
+var timeCounter = window.setInterval(displayTime, 10);
+
+btns[0].addEventListener('click', function() {
+  stopTime();
+  timeCounter = window.setInterval(displayTime, 10);
+});
+btns[1].addEventListener('click', stopTime);
+btns[2].addEventListener('click', function() {
+  miSec = 0;
+  sec = 0;
+  min = 0;
+  h1.textContent = '00:00.00';
+});
+
+function stopTime() {
+  window.clearInterval(timeCounter);  
+}
 </script>
 
 </body>
