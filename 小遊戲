@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{ background-color: rgba(0,0,0,0.85);
+      color: white;
+	  }
+.img{ position: absolute;
+     left: 35%;
+	 top: 30%;
+	 }
+img{ width: 300px;
+     height: 200px;
+	 }
+div > h1 { float: left;
+           width: 33%;
+		   text-align: center;
+		   border: 1px white solid;
+		   }
+</style>
+</head>
+<body>
+<div>
+  <h1>Player 1</h1>
+  <h1 id='start'>Start</h1>
+  <h1>Player 2</h1>
+</div>
+<div class='img'>
+  <img src='sword.png'>
+</div>
+<script>
+var image = document.querySelector('img');
+var h1 = document.querySelectorAll('h1')
+var count = 1;
+var rot;
+
+function rotate() {
+  count += 2;
+  let txt = 'rotate(' + count + 'deg)';
+  image.style.transform = txt;
+  
+  rot = requestAnimationFrame(rotate);
+}
+
+h1[1].addEventListener('click', function() {
+  h1[0].textContent = 'Player1: press A';
+  h1[1].style.visibility = 'hidden';
+  h1[2].textContent = 'Player2: press L';
+  rotate();
+  
+  window.setTimeout(function() {
+    h1[1].style.visibility = '';
+	h1[1].style.color = 'red';
+	h1[1].textContent = 'Press button!';
+	cancelAnimationFrame(rot);
+  },1000*random(5,11));
+});
+function random(min, max) {
+  return Math.floor(Math.random()*(max-min)+min);
+}
+window.addEventListener('keypress',function(e) {
+  var code = e.key;
+  if(h1[1].textContent === 'Press button!') {
+    if(code==='a') {
+	  h1[1].textContent = 'Player 1 Win!';
+	  window.setTimeout(function() {
+	    h1[0].textContent = 'Player 1';
+		h1[1].textContent = 'Start';
+		h1[2].textContent = 'Player 2';
+	  },3000);
+	}
+	else if(code==='l') {
+	  h1[1].textContent = 'Player 2 Win!';
+	  window.setTimeout(function() {
+	    h1[0].textContent = 'Player 1';
+		h1[1].textContent = 'Start';
+		h1[2].textContent = 'Player 2';
+	  },3000);
+	}
+  }
+});
+</script>
+
+</body>
+</html>
