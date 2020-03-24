@@ -1,1 +1,50 @@
-
+[
+  {
+      "name": "sprite",
+      "price": 20,
+      "image": "sprite.jpg",
+      "type": "beverage"
+  },
+  {
+      "name": "cocacola",
+      "price": 25,
+      "image": "cocacola.jpg",
+      "type": "beverage" 
+  },
+  {
+      "name": "greentea",
+      "price": 15,
+      "image": "greentea.jpg",
+      "type": "beverage"
+  },
+  {
+      "name": "blacktea",
+      "price": 35,
+      "image": "blacktea.jpg",
+      "type": "beverage"
+  },
+  {
+      "name": "pork",
+      "price": 100,
+      "image": "pork.jpg",
+      "type": "meat"
+  },
+  {
+      "name": "beef",
+      "price": 125,
+      "image": "beef.jpg",
+      "type": "meat"
+  },
+  {
+      "name": "chiken",
+      "price": 80,
+      "image": "chiken.jpg",
+      "type": "meat"
+  },
+  {
+      "name": "beens",
+      "price": 30,
+      "image": "beens.jpg",
+      "type": "vegetables"
+  }
+]
